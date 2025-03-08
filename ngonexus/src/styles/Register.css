@@ -1,35 +1,115 @@
-.register {
+/* Center the entire page */
+.register-container {
     display: flex;
-    flex-direction: column;
-    align-items: center;
     justify-content: center;
-    height: 60vh;
+    align-items: center;
+    height: 100vh;
+    background-color: #f4f4f4;
+}
+
+/* Card-like form box */
+.register-box {
     background: #ffffff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.15);
+    width: 400px;
+    max-width: 90%;
+    text-align: center;
 }
 
-.register input {
-    width: 320px;
+/* Subtext styling */
+.subtext {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+/* Input field styling */
+.input-group {
+    text-align: left;
+    margin-bottom: 15px;
+}
+
+.input-group label {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.register-box input {
+    width: 100%;
     padding: 12px;
-    margin: 10px 0;
     border: 1px solid #ccc;
-    border-radius: 5px;
+    border-radius: 6px;
     font-size: 16px;
+    outline: none;
+    transition: border 0.3s ease-in-out;
 }
 
-.register button {
+.register-box input:focus {
+    border-color: #0056b3;
+}
+
+/* Button styling */
+.register-box button {
+    width: 100%;
     background-color: #0056b3;
     color: white;
     border: none;
-    padding: 12px 20px;
+    padding: 12px;
     cursor: pointer;
-    border-radius: 5px;
+    border-radius: 6px;
     font-size: 16px;
+    margin-top: 10px;
     transition: background 0.3s;
 }
 
-.register button:hover {
+.register-box button:hover {
     background-color: #003d80;
+}
+
+/* Login link */
+.login-link {
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+.login-link a {
+    color: #0056b3;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.login-link a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .register-box {
+        width: 80%;
+        padding: 30px;
+    }
+
+    .register-box h2 {
+        font-size: 1.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .register-box {
+        width: 90%;
+        padding: 20px;
+    }
+
+    .register-box h2 {
+        font-size: 1.5rem;
+    }
+
+    .register-box button {
+        font-size: 14px;
+        padding: 10px;
+    }
 }

@@ -1,41 +1,52 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "../styles/Profile.css";
 
-
-const Profile = () => {
-  const [bio, setBio] = useState("NGO Bio");
-  const [posts, setPosts] = useState([]);
+const Profile = ({ posts, addPost, deletePost, likePost, addComment }) => {
   const [newPost, setNewPost] = useState("");
-  const userEmail = localStorage.getItem("userEmail");
+  const [image, setImage] = useState(null);
 
-  const addPost = () => {
-    if (newPost) {
-      setPosts([...posts, newPost]);
+  // 🟢 Handle Post Creation
+  const handlePost = () => {
+    if (newPost.trim()) {
+      addPost({ id: Date.now(), text: newPost, image, likes: 0, comments: [] });
       setNewPost("");
+      setImage(null);
     }
   };
 
-  const deletePost = (index) => {
-    setPosts(posts.filter((_, i) => i !== index));
-  };
-
   return (
-    <div className="container">
-      <h2>Profile</h2>
-      <p>Email: {userEmail}</p>
-      <p>{bio}</p>
-      <input
-        type="text"
-        placeholder="Write a post"
-        value={newPost}
-        onChange={(e) => setNewPost(e.target.value)}
-      />
-      <button onClick={addPost}>Post</button>
-      <div>
-        {posts.map((post, index) => (
-          <div key={index} className="post">
-            <p>{post}</p>
-            <button onClick={() => deletePost(index)}>Delete</button>
+    <div className="profile-container">
+      <div className="profile">
+        <img src="https://via.placeholder.com/120" alt="Profile" />
+        <h2>NGO Name</h2>
+        <p>NGO Bio: Working for society.</p>
+      </div>
+
+      {/* 🔹 Post Input Box */}
+      <div className="create-post">
+        <textarea 
+          value={newPost} 
+          onChange={(e) => setNewPost(e.target.value)} 
+          placeholder="Share your NGO's work..." 
+        />
+        <input type="file" onChange={(e) => setImage(URL.createObjectURL(e.target.files[0]))} />
+        <button onClick={handlePost}>Post</button>
+      </div>
+
+      {/* 🔹 Display Posts */}
+      <div className="posts">
+        {posts.map((post) => (
+          <div key={post.id} className="post">
+            {post.image && <img src={post.image} alt="Post" />}
+            <p>{post.text}</p>
+            <div className="post-actions">
+              <button onClick={() => likePost(post.id)}>❤️ {post.likes}</button>
+              <button onClick={() => deletePost(post.id)}>🗑 Delete</button>
+              <button onClick={() => addComment(post.id, prompt("Add a comment"))}>💬 Comment</button>
+            </div>
+            <div className="comments">
+              {post.comments.map((comment, index) => <p key={index}>💬 {comment}</p>)}
+            </div>
           </div>
         ))}
       </div>
