@@ -4,6 +4,7 @@ import "../styles/Profile.css";
 const Profile = ({ posts, addPost, deletePost, likePost, addComment }) => {
   const [newPost, setNewPost] = useState("");
   const [image, setImage] = useState(null);
+  const [profileImage, setProfileImage] = useState(null); // Profile Image State
 
   // 🟢 Handle Post Creation
   const handlePost = () => {
@@ -14,10 +15,33 @@ const Profile = ({ posts, addPost, deletePost, likePost, addComment }) => {
     }
   };
 
+  // 🟢 Handle Profile Image Upload
+  const handleProfileImageChange = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      setProfileImage(URL.createObjectURL(file));
+    }
+  };
+
   return (
     <div className="profile-container">
       <div className="profile">
-        <img src="https://via.placeholder.com/120" alt="Profile" />
+        {/* Profile Image Upload */}
+        <label htmlFor="profile-upload">
+          <img
+            src={profileImage || "https://via.placeholder.com/120"}
+            alt="Profile"
+            className="profile-pic"
+          />
+        </label>
+        <input
+          type="file"
+          id="profile-upload"
+          accept="image/*"
+          onChange={handleProfileImageChange}
+          style={{ display: "none" }}
+        />
+
         <h2>NGO Name</h2>
         <p>NGO Bio: Working for society.</p>
       </div>
@@ -29,7 +53,10 @@ const Profile = ({ posts, addPost, deletePost, likePost, addComment }) => {
           onChange={(e) => setNewPost(e.target.value)} 
           placeholder="Share your NGO's work..." 
         />
-        <input type="file" onChange={(e) => setImage(URL.createObjectURL(e.target.files[0]))} />
+        <input type="file" 
+          accept="image/*" 
+          onChange={(e) => setImage(URL.createObjectURL(e.target.files[0]))} 
+        />
         <button onClick={handlePost}>Post</button>
       </div>
 

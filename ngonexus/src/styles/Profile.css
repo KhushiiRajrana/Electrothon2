@@ -1,4 +1,4 @@
-/* Center the profile container */
+/* 🔹 Profile Container */
 .profile-container {
     display: flex;
     flex-direction: column;
@@ -7,13 +7,14 @@
     min-height: 100vh;
     background-color: #f4f4f4;
     padding: 20px;
+    font-family: 'Arial', sans-serif;
 }
 
-/* Profile card */
-.profile-box {
+/* 🔹 Profile Box */
+.profile {
     background: white;
     padding: 30px;
-    border-radius: 12px;
+    border-radius: 16px;
     box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.15);
     width: 400px;
     max-width: 90%;
@@ -21,175 +22,42 @@
     margin-bottom: 20px;
 }
 
-.profile-box img {
-    width: 120px;
-    height: 120px;
+/* 🔹 Profile Picture */
+.profile-pic {
+    width: 130px;
+    height: 130px;
     border-radius: 50%;
-    margin-bottom: 10px;
-    border: 3px solid #0056b3;
     object-fit: cover;
-}
-
-.profile-box input {
-    width: 100%;
-    padding: 10px;
-    margin-top: 5px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    font-size: 14px;
-    text-align: center;
-}
-
-/* Create Post Box */
-.create-post {
-    background: white;
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    width: 400px;
-    max-width: 90%;
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.create-post textarea {
-    width: 100%;
-    height: 80px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    resize: none;
-    font-size: 14px;
-}
-
-.create-post button {
-    background-color: #0056b3;
-    color: white;
-    border: none;
-    padding: 10px 15px;
+    border: 4px solid #0056b3;
+    display: block;
+    margin: 0 auto;
     cursor: pointer;
-    margin-top: 10px;
-    border-radius: 6px;
-    font-size: 16px;
-    transition: background 0.3s;
 }
 
-.create-post button:hover {
-    background-color: #003d80;
-}
-
-/* Post Grid Layout - Responsive */
+/* 🔹 Post Box */
 .posts {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 15px;
     width: 100%;
     max-width: 900px;
     margin-top: 20px;
 }
 
-/* Post Box */
+/* 🔹 Post Cards */
 .post {
     background: white;
     padding: 15px;
     border-radius: 12px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
     text-align: left;
-    transition: transform 0.2s;
+    width: 300px;
 }
 
-.post:hover {
-    transform: scale(1.02);
-}
-
-/* Post Image */
 .post img {
     width: 100%;
+    max-height: 200px;
     border-radius: 6px;
     object-fit: cover;
-}
-
-/* Post Text */
-.post-text {
-    font-size: 16px;
-    margin-top: 10px;
-}
-
-/* Post Actions */
-.post-actions {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 10px;
-}
-
-/* Buttons */
-button {
-    border: none;
-    padding: 10px 15px;
-    font-size: 16px;
-    font-weight: bold;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: all 0.3s ease-in-out;
-}
-
-/* Primary Action Buttons */
-.primary-btn {
-    background-color: #0056b3;
-    color: white;
-}
-
-.primary-btn:hover {
-    background-color: #003d80;
-    transform: scale(1.05);
-}
-
-/* Delete Button */
-.delete-btn {
-    background-color: #dc3545;
-    color: white;
-}
-
-.delete-btn:hover {
-    background-color: #a71d2a;
-    transform: scale(1.05);
-}
-
-/* Like Button */
-.like-btn {
-    background-color: transparent;
-    color: #e63946;
-    font-size: 18px;
-    display: flex;
-    align-items: center;
-    gap: 5px;
-}
-
-.like-btn:hover {
-    color: #b71c1c;
-}
-
-/* Comment Button */
-.comment-btn {
-    background-color: transparent;
-    color: #0056b3;
-}
-
-.comment-btn:hover {
-    text-decoration: underline;
-}
-
-/* Comments Section */
-.comments {
-    margin-top: 10px;
-    font-size: 14px;
-    color: #333;
-}
-
-.comments p {
-    background: #f1f1f1;
-    padding: 5px;
-    border-radius: 6px;
-    margin-bottom: 5px;
 }
