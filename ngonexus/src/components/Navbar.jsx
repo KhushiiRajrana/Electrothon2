@@ -2,16 +2,17 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "../styles/Navbar.css";
 
-
 const Navbar = () => {
   return (
     <nav className="navbar">
-      <h1>NgoNexus</h1>
-      <div className="nav-links">
-        <Link to="/">Home</Link>
-        <Link to="/register">Register</Link>
-        <Link to="/profile">Profile</Link>
-        <Link to="/feed">Feed</Link>
+      <div className="navbar-container">
+        <h1 className="navbar-logo">NgoNexus</h1>
+        <div className="navbar-links">
+          <Link className="nav-link" to="/">Home</Link>
+          <Link className="nav-link" to="/register">Register</Link>
+          <Link className="nav-link" to="/profile">Profile</Link>
+          <Link className="nav-link" to="/feed">Feed</Link>
+        </div>
       </div>
     </nav>
   );
