@@ -1,13 +1,45 @@
-body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f8f9fa;
+/* index.css - Global styles */
+:root {
+    --primary-color: #4a6fa5;
+    --primary-dark: #3a5a8c;
+    --primary-light: #6b8cb8;
+    --secondary-color: #f8b400;
+    --secondary-dark: #e0a400;
+    --text-color: #333333;
+    --text-light: #666666;
+    --background-color: #f9f9f9;
+    --card-background: #ffffff;
+    --border-color: #e0e0e0;
+    --success-color: #4caf50;
+    --error-color: #f44336;
+    --shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  * {
     margin: 0;
     padding: 0;
-    color: #333;
-}
-
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-}
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--text-color);
+    background-color: var(--background-color);
+    line-height: 1.6;
+  }
+  
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  button {
+    cursor: pointer;
+  }
+  
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  

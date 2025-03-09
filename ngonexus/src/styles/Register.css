@@ -1,115 +1,132 @@
-/* Center the entire page */
+/* Register.css - Registration page styles */
 .register-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    background-color: #f4f4f4;
-}
-
-/* Card-like form box */
-.register-box {
-    background: #ffffff;
-    padding: 40px;
-    border-radius: 12px;
-    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.15);
-    width: 400px;
-    max-width: 90%;
+    padding: 40px 20px;
+  }
+  
+  .register-card {
+    background-color: var(--card-background);
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    width: 100%;
+    max-width: 500px;
+    padding: 30px;
+  }
+  
+  .register-header {
     text-align: center;
-}
-
-/* Subtext styling */
-.subtext {
-    font-size: 14px;
-    color: #666;
-    margin-bottom: 15px;
-}
-
-/* Input field styling */
-.input-group {
-    text-align: left;
-    margin-bottom: 15px;
-}
-
-.input-group label {
-    display: block;
-    font-size: 14px;
-    margin-bottom: 5px;
-    color: #333;
-}
-
-.register-box input {
-    width: 100%;
+    margin-bottom: 30px;
+  }
+  
+  .register-header h1 {
+    font-size: 1.8rem;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+  }
+  
+  .register-header p {
+    color: var(--text-light);
+  }
+  
+  .register-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .form-group label {
+    font-weight: 500;
+    font-size: 0.9rem;
+  }
+  
+  .form-group input[type="text"],
+  .form-group input[type="email"],
+  .form-group input[type="password"] {
     padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    font-size: 16px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    font-family: inherit;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+  }
+  
+  .form-group input:focus {
     outline: none;
-    transition: border 0.3s ease-in-out;
-}
-
-.register-box input:focus {
-    border-color: #0056b3;
-}
-
-/* Button styling */
-.register-box button {
-    width: 100%;
-    background-color: #0056b3;
-    color: white;
-    border: none;
-    padding: 12px;
-    cursor: pointer;
-    border-radius: 6px;
-    font-size: 16px;
-    margin-top: 10px;
-    transition: background 0.3s;
-}
-
-.register-box button:hover {
-    background-color: #003d80;
-}
-
-/* Login link */
-.login-link {
-    margin-top: 15px;
-    font-size: 14px;
-}
-
-.login-link a {
-    color: #0056b3;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-.login-link a:hover {
+    border-color: var(--primary-color);
+  }
+  
+  .radio-group {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .radio-option {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .checkbox-group {
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .checkbox-group label {
+    font-weight: normal;
+    font-size: 0.9rem;
+  }
+  
+  .terms-link {
+    color: var(--primary-color);
     text-decoration: underline;
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    .register-box {
-        width: 80%;
-        padding: 30px;
+  }
+  
+  .register-button {
+    padding: 12px;
+    background-color: var(--primary-color);
+    color: white;
+    font-weight: 600;
+    font-size: 1rem;
+    border-radius: 4px;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .register-button:hover {
+    background-color: var(--primary-dark);
+  }
+  
+  .register-footer {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 0.9rem;
+    color: var(--text-light);
+  }
+  
+  .login-link {
+    color: var(--primary-color);
+    font-weight: 500;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 480px) {
+    .register-card {
+      padding: 20px;
     }
-
-    .register-box h2 {
-        font-size: 1.8rem;
+  
+    .radio-group {
+      flex-direction: column;
+      gap: 10px;
     }
-}
-
-@media (max-width: 480px) {
-    .register-box {
-        width: 90%;
-        padding: 20px;
-    }
-
-    .register-box h2 {
-        font-size: 1.5rem;
-    }
-
-    .register-box button {
-        font-size: 14px;
-        padding: 10px;
-    }
-}
+  }
+  
+  
