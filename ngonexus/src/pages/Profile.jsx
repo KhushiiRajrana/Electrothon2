@@ -1,7 +1,7 @@
 "use client"
 
-import { useState } from "react"
-import "../styles/Profile.css"
+import { useState } from "react";
+import "../styles/Profile.css";
 
 function Profile() {
   const [user, setUser] = useState({
@@ -11,7 +11,7 @@ function Profile() {
     skills: ["Teaching", "Project Management", "Social Media"],
     interests: ["Environment", "Education", "Animal Welfare"],
     avatar: "/placeholder.svg?height=150&width=150",
-  })
+  });
 
   const [activities, setActivities] = useState([
     {
@@ -28,18 +28,62 @@ function Profile() {
       date: "2023-05-08",
       hours: 3,
     },
-  ])
+  ]);
+
+  const [isEditing, setIsEditing] = useState(false);
+  const [editName, setEditName] = useState(user.name);
+  const [editBio, setEditBio] = useState(user.bio);
+  const [editAvatar, setEditAvatar] = useState(user.avatar);
+
+  const handleEditClick = () => {
+    setIsEditing(true);
+  };
+
+  const handleSaveClick = () => {
+    setUser((prevUser) => ({ ...prevUser, name: editName, bio: editBio, avatar: editAvatar }));
+    setIsEditing(false);
+  };
+
+  const handleAvatarChange = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setEditAvatar(reader.result);
+      };
+      reader.readAsDataURL(file);
+    }
+  };
 
   return (
     <div className="profile-container">
       <div className="profile-header">
         <div className="profile-avatar">
           <img src={user.avatar || "/placeholder.svg"} alt={user.name} />
+          {isEditing && <input type="file" accept="image/*" onChange={handleAvatarChange} />}
         </div>
         <div className="profile-info">
-          <h1>{user.name}</h1>
-          <p className="profile-email">{user.email}</p>
-          <p className="profile-bio">{user.bio}</p>
+          {isEditing ? (
+            <>
+              <input
+                type="text"
+                value={editName}
+                onChange={(e) => setEditName(e.target.value)}
+                className="edit-input"
+              />
+              <textarea
+                value={editBio}
+                onChange={(e) => setEditBio(e.target.value)}
+                className="edit-textarea"
+              />
+            </>
+          ) : (
+            <>
+              <h1>{user.name}</h1>
+              <p className="profile-email">{user.email}</p>
+              <p className="profile-bio">{user.bio}</p>
+            </>
+          )}
         </div>
       </div>
 
@@ -93,12 +137,19 @@ function Profile() {
       </div>
 
       <div className="profile-actions">
-        <button className="profile-button primary">Edit Profile</button>
+        {isEditing ? (
+          <button className="profile-button primary" onClick={handleSaveClick}>
+            Save
+          </button>
+        ) : (
+          <button className="profile-button primary" onClick={handleEditClick}>
+            Edit Profile
+          </button>
+        )}
         <button className="profile-button secondary">Change Password</button>
       </div>
     </div>
-  )
+  );
 }
 
-export default Profile
-
+export default Profile;

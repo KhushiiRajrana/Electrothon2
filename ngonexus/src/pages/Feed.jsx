@@ -12,8 +12,11 @@ function Feed() {
       description: "Join us for our monthly beach cleanup drive this Saturday. Together we can make a difference!",
       date: "2023-06-15",
       location: "Coastal Beach",
-      image: "/placeholder.svg?height=200&width=300",
-    },
+      image: "https://th.bing.com/th/id/OIP.g93wEFzFbMiTd-l_QYHeQwHaE7?rs=1&pid=ImgDetMain",
+    }
+    
+    ,
+    
     {
       id: 2,
       organization: "Education For All",
@@ -21,7 +24,7 @@ function Feed() {
       description: "Looking for passionate volunteers to teach underprivileged children. No prior experience required.",
       date: "2023-06-20",
       location: "Community Center",
-      image: "/placeholder.svg?height=200&width=300",
+      image: "https://images.hindustantimes.com/Images/popup/2015/7/FS6.jpg",
     },
     {
       id: 3,
@@ -30,7 +33,7 @@ function Feed() {
       description: "Help our furry friends find forever homes. Adoption drive this Sunday from 10 AM to 4 PM.",
       date: "2023-06-18",
       location: "City Park",
-      image: "/placeholder.svg?height=200&width=300",
+      image: "https://www.srdps.org/images/baby/adoption3-2021.jpg",
     },
   ])
 
@@ -77,4 +80,3 @@ function Feed() {
 }
 
 export default Feed
-
